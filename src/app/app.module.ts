@@ -9,12 +9,12 @@ import { convertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    convertToSpacesPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    convertToSpacesPipe
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })
