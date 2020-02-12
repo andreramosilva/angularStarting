@@ -1,28 +1,28 @@
 <div class="card">
   <div class="card-header">
-    {{pageTitle}}
+    {{ pageTitle }}
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-2">Filter By:</div>
       <div class="col-4">
-        <input type="text" [(ngModel)]='listFilter' />
+        <input type="text" [(ngModel)]="listFilter" />
       </div>
     </div>
     <div class="row">
       <div class="col-6">
-        <h4>Filtered By: {{listFilter}}</h4>
+        <h4>Filtered By: {{ listFilter }}</h4>
       </div>
     </div>
     <div class="table-responsive">
-      <div class="table"  *ngIf="products && products.lenght">
+      <div class="table" *ngIf="products && products.length">
         <thead>
           <tr>
             <th>
-              <button class="btn btn-primary"
-                (click)='toggleImage()'>
-                {{showImage ? 'hide' : 'show' }}
-              image</button>
+              <button class="btn btn-primary" (click)="toggleImage()">
+                {{ showImage ? "hide" : "show" }}
+                image
+              </button>
             </th>
             <th>Product</th>
             <th>Code</th>
@@ -31,18 +31,22 @@
             <th>5 Star Rating</th>
           </tr>
           <tr *ngFor="let product of products">
-            <td><img [src]='product.imageUrl'
-                      [title]='product.productName'
-                      [style.width.px]="imageWidth"
-                      [style.margin.px]="imageMargin"
-                      *ngIf="showImage"              >
-                                  </td>
-            <td>{{product.productName}}</td>
-            <td>{{product.productCode | lowercase | convertToSpaces : '-' }}</td>
-            <td>{{product.releaseDate}}</td>
-            <td>{{product.price | currency : 'USD' : 'symbol':'1.2-2'}}</td>
-            <td>{{product.starRating}}</td>
-
+            <td>
+              <img
+                [src]="product.imageUrl"
+                [title]="product.productName"
+                [style.width.px]="imageWidth"
+                [style.margin.px]="imageMargin"
+                *ngIf="showImage"
+              />
+            </td>
+            <td>{{ product.productName }}</td>
+            <td>
+              {{ product.productCode | lowercase | convertToSpaces: "-" }}
+            </td>
+            <td>{{ product.releaseDate }}</td>
+            <td>{{ product.price | currency: "USD":"symbol":"1.2-2" }}</td>
+            <td>{{ product.starRating }}</td>
           </tr>
         </thead>
         <tbody></tbody>
